@@ -1,0 +1,335 @@
+<style>
+	.box-marquee .frame-woven { border: 3px solid #7C6B89; background: transparent; 
+	width: 34%; margin: 0 auto; }
+.box-marquee .frame-woven img { width: 100%; height: auto; }
+
+.box-marquee .deco { 
+	position: absolute; 
+	display: block; width: 102px; height: auto; top: 0; left: 4%; }
+	
+.box-marquee .deco .hangline { 
+	position: relative;
+	width: 50%; height: 96px; border-right: 1px solid #7C6B89; }
+
+.box-marquee .deco div.flower { 
+	display: block; width: 102px; height: 102px; background: url(images/flower_diamond.png) transparent no-repeat top center; 
+	z-index: 99;
+}	
+	
+.box-marquee .deco.diamond { width: 102px; left: 4%; }
+.box-marquee .deco.diamond.rhang { left: inherit; right: 4%; }	
+.box-marquee .deco.diamond .hangline { height: 96px; }
+.box-marquee .deco.diamond div.flower {
+	width: 102px; height: 102px; background-image: url(images/flower_diamond.png);
+}
+
+.box-marquee .deco.disc { width: 72px; left: 16%; }
+.box-marquee .deco.disc.rhang { left: inherit; right: 16%; }	
+.box-marquee .deco.disc .hangline { height: 144px; }
+.box-marquee .deco.disc div.flower {
+	width: 72px; height: 78px; background-image: url(images/flower_disc.png);
+}
+
+.box-marquee .deco.blossom { width: 48px; left: 28%; }
+.box-marquee .deco.blossom.rhang { width: 48px; left: inherit; right: 28%; }	
+.box-marquee .deco.blossom .hangline { height: 120px; }
+.box-marquee .deco.blossom div.flower {
+	width: 48px; height: 72px; background-image: url(images/flower_blossom.png);
+}
+
+
+/* FLIPY */
+#currently {
+	width: 60%;
+	float: right;
+	text-align: center;
+}
+
+
+.card {
+	width: 108px;
+	height: 108px;
+	position: relative;
+	border: 1px solid #e6e6e6;
+	display: inline-block;
+	margin: 6px;
+}
+
+.card .face {
+	width: 96px; height: 96px;
+	padding: 6px;
+	position: relative;
+	top: 0; left:0;
+}
+
+.card .front {
+	z-index: 1;
+	background-color: #fff;
+	color: #000;
+}
+
+.card .face .focusring { 
+	display: block; background-color: #fff; 
+	position: relative;
+	z-index: 3;
+	width: 96px; height: 96px; -webkit-border-radius: 48px; 
+	margin: 0 auto; 
+	text-align: center;
+}
+
+.card .face.back .focusring { background-color: transparent; }
+
+.card .face.front .focusring span.ico { 
+	display: block; width: 100%; height: 100%;
+	margin: 0 auto; 
+	background: url(images/tile_ico_book.png) transparent no-repeat center center; 
+	filter: alpha(opacity=100); 
+	-moz-opacity:1.0;
+	opacity:1.0; 
+}
+
+/* various icons */
+.card .face.front .focusring span.ico.reading { background-image: url(images/tile_ico_book.png); }
+.card .face.front .focusring span.ico.listening { background-image: url(images/tile_ico_musicnotes.png); }
+.card .face.front .focusring span.ico.learning { background-image: url(images/tile_ico_led.png); }
+.card .face.front .focusring span.ico.drawing { background-image: url(images/tile_ico_drafttools.png); }
+.card .face.front .focusring span.ico.digging, .card .face.front .focusring span.ico.adoring { background-image: url(images/tile_ico_heart.png); }
+.card .face.front .focusring span.ico.obsessing { background-image: url(images/tile_ico_gears.png); }
+.card .face.front .focusring span.ico.drinking { background-image: url(images/tile_ico_glass.png); }
+.card .face.front .focusring span.ico.writing { background-image: url(images/tile_ico_page.png); }
+.card .face.front .focusring span.ico.watching { background-image: url(images/tile_ico_vidcam.png); }
+
+
+.card .front span.label { 
+	display: block; text-align: center; 
+	width: 100%; position: absolute; bottom: 10px; left: 0; font-size: 10pt; color: #000; 
+}
+
+.card .front.hover {  }
+.card .face.front.hover .focusring span.ico {  }
+.card .front.hover span.label {  }
+.card .back {
+	display: none;
+	position: absolute;
+	z-index: 3;
+	font-size: 10px;
+	background-color: #000; color: #e6e6e6;
+}
+
+.card .back .button-close { 
+	display: block; position: absolute; width: 16px; height: 16px; 
+	top: 6px; right: 6px; border: 1px solid #e6e6e6; 
+	z-index: 99;
+	background: url(images/sprite_close_x.png) transparent no-repeat top center;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+}
+.card .back .button-close:hover { border-color: #857e8a; background-position: bottom center; }
+.card .focusring .content-card {  }
+#wrapper-main .card .focusring h4, .card .focusring address { color: #e6e6e6; padding: 0; text-align: center; margin-bottom: 4px; }
+#wrapper-main .card .focusring h4 { font-family: Georgia, Times, serif; font-size: 12px; }
+.card .back address { font-style: normal; margin: 0; }	
+#wrapper-main .card .back a, #wrapper-main .card .back address a { color: #e6e6e6; text-decoration: underline; }	
+#wrapper-main .card .back a:hover, #wrapper-main .card .back address a:hover { color: #857e8a; }	
+
+header #fishy h1 {
+	position: relative;
+	z-index: 99;
+	color: #fff;
+	font-size: 10pt;
+	font-weight: normal;
+	letter-spacing: 1px;
+	font-family: Futura, Helvetica, Arial, sans-serif;
+	width: 10%;
+	max-width: 84px;
+	float: left;
+	margin: 0 2% 0 0;
+}
+
+header #fishy h1 a { color: #b3b3b3; display: block; text-decoration: none; line-height: 1.2em; height: 32px; padding: 12px 0; }	
+header #fishy h1 a:hover { color: #22B573; }
+
+.band-ticker ul.checkthis-too { list-style: none; padding: 0; margin: 0; }
+.band-ticker ul.checkthis-too li { display: inline-block; color: #B3B3B3; margin: 0 24px 0 0; }
+#wrapper-main .band-ticker ul.checkthis-too li a { color: #b3b3b3; text-decoration: none; display: inline-block; line-height: 16px; }
+#wrapper-main .band-ticker ul.checkthis-too li a, #wrapper-main .band-ticker ul.checkthis-too li a span { -webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none; }
+#wrapper-main .band-ticker ul.checkthis-too li a:hover { color: #fff; }
+	
+.band-ticker ul.checkthis-too li a span.ico { 
+	display: inline-block; width: 15px; height: 15px; margin: 0 5px 0 0; background: url(images/sprite_ico_ticker.png) transparent no-repeat top left; }
+
+.band-ticker ul.checkthis-too li a span.ico.danger { background-position: bottom left; }
+.band-ticker ul.checkthis-too li a:hover span.ico.danger { background-position: top left; }
+		
+.band-ticker ul.checkthis-too li a span.ico.heart { background-position: bottom right; }
+.band-ticker ul.checkthis-too li a:hover span.ico.heart { background-position: top right; }
+</style>
+<!-- CIRH -->
+<p>The Interim Haiti Recovery Commission (IHRC) was established to oversee recovery projects in the wake of the 2010 earthquake.  The commission was in charge of ensuring that aid and assistance given to the disaster-stricken nation aligned with the self-determined priorities of the people and government of Haiti.  The commission was co-chaired by then prime minister Jean-Max Bellerive and Bill Clinton, former President of the United States.     </p> 
+
+<p>I was part of the team at President Clinton&rsquo;s foundation who were charged with redesigning the IHRC web presence.  We strove to present important content &mdash; mission, recovery goals by sector, and the portfolio of projects registered through the IHRC &mdash; in a prominent and well-organized way.  We also wanted to suffuse the design with the intrepid, fearless spirit that has characterized the Haitian people through all of history, and made the nation&rsquo; motto and rallying cry &ldquo;L'union fait la force&rdquo;, part of the site&rsquo; theme.</p>   
+
+
+	<!-- EDUCATION -->	
+			<div class="history-section">
+				<h3 class="header-section upper">Education</h3>
+				<ol id="education" class="timeline">
+				<!-- MS -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2003</span>
+							<span class="end">2005</span>
+						</div>
+						<div class="thing-done">
+							<h5>Pennsylvania State University <span class="location">University Park, PA</span></h5>
+							<h4>M.S., Information Sciences &amp; Technology</h4>
+						</div>
+					</li>
+				<!-- BA -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2003</span>
+							<span class="end">2005</span>
+						</div>
+						<div class="thing-done">
+							<h5>Wellesley College <span class="location">Wellesley, MA</span></h5>
+							<h4>B.A., Ancient Greek</h4>
+						</div>
+					</li>
+				</ol>
+			</div>
+			<!-- EXPERIENCE -->
+			<div class="history-section">
+				<h3 class="header-section upper">Experience</h3>
+				<ol id="experience" class="timeline">
+				<!-- CF -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2009 November</span>
+							<span class="end">2012 August</span>
+						</div>
+						<div class="thing-done">
+							<h5>William J. Clinton Foundation <span class="location">New York, NY</span></h5>
+							<h4>Front-End Developer</h4>
+							<ul class="deets-list">
+								<li>Translated static mock-ups into flexible, semantic front-end code;</li>
+								<li>worked with back-end developers to integrate presentation markup and server-side scripting;</li>
+								<li>conducted testing across major browsers throughout development process and post-launch;</li>
+								<li>supported design and communications teams in creating graceful website concepts from site mapping through interface design and user flow, advising on UX, SEO considerations and cross-browser best practices.</li>
+							</ul>
+						</div>
+					</li>
+			
+			<!-- PRO BONO -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2008 January</span>
+							<span class="end">present</span>
+						</div>
+						<div class="thing-done">
+							<h5>Various Organizations<span class="location">New York, NY</span></h5>
+							<h4>Community Volunteer</h4>
+							<p>Provide <em>pro bono</em> design, web and computing support to community organizations in the New York City area, including: <strong>Friends of the Ridgewood Library</strong> (Ridgewood, Queens &mdash; web projects with community youth, web and print design support); <strong>Bed Stuy Campaign Against Hunger</strong> (Bedford-Stuyvesant, Brooklyn &mdash; website, analytics support); <strong>Doc to Dock</strong> (Boerum Hill, Brooklyn &mdash; graphics &amp; CMS assistance); <strong>Sex Workers Project</strong> at the Urban Justice Center (Financial District, Manhattan &mdash; print design).</p>
+						
+							</ul>
+						</div>
+					</li>	
+					
+				<!-- TF -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2007 May</span>
+							<span class="end">2009 April</span>
+						</div>
+						<div class="thing-done">
+							<h5>Tripfilms <span class="location">New York, NY</span></h5>
+							<h4>Designer &amp; Front-End Developer</h4>
+							<ul class="deets-list">
+								<li>Created all design (wireframes, mock-ups, graphics) assets for tripfilms.com, based on company brand guidelines;</li>
+								<li>prototyped final designs in front-end markup (HTML/CSS), and coded Flash UI modules (ActionScript 3.0);</li> 
+								<li>conducted QA / testing on tripfilms.com and B2B projects;</li>
+								<li>created mock-ups, banners, and other promotional assets for Tripfilms, as well as client concerns.</li>
+							</ul>
+						</div>
+					</li>
+					
+			<!-- PSU -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2003 September</span>
+							<span class="end">2005 August</span>
+						</div>
+						<div class="thing-done">
+							<h5>Pennsylvania State University <span class="location">University Park, PA</span></h5>
+							<h4>Graduate Research &amp; Teaching Assistant</h4>
+							<ul class="deets-list">
+								<li>Assisted faculty with research work, including literature reviews, qualitative data analysis and writing;</li>
+								<li>provided support to professors in classroom instruction, website design/maintenance and grading.</li> 
+							</ul>
+						</div>
+					</li>
+					
+			<!-- Blackwell -->	
+					<li class="clearfix">
+						<div class="date-range">
+							<span class="start">2001 October</span>
+							<span class="end">2003 July</span>
+						</div>
+						<div class="thing-done">
+							<h5>Harvard Medical School / Center for Blood Research <span class="location">Boston, MA</span></h5>
+							<h4>Research Assistant</h4>
+							<ul class="deets-list">
+								<li>Conducted molecular biology experiments probing fundamental research inquiries (embryonic development; stress response / aging; germline development) in <em>C. Elegans</em> laboratory;</li>
+								<li>managed administrative tasks, including environmental safety monitoring, laboratory organization, procurement;</li> 
+								<li>created and maintained Blackwell Lab Web site.</li>
+							</ul>
+
+						</div>
+					</li>					
+				
+				</ol>
+			</div>
+			
+		<!-- SKILLZ, INTERESTS -->	
+			<div class="history-section">
+				<h3 class="header-section upper">Skills &amp; Interests</h3>
+				<h5><em>Web Design &amp; Development</em></h5>
+				<ul class="bullet-list">
+					<li><strong>Web Development :</strong> proficiency in HTML / CSS; working knowledge of JavaScript (with and without JQuery framework), PHP;</li> 
+					<li><strong>Design :</strong> proficiency in Adobe Creative Suite, including Dreamweaver, Flash (ActionScript 3.0), Illustrator, InDesign, Photoshop;</li> 
+					<li><strong>Content Management Frameworks :</strong> working knowledge of MODx (Revolution), WordPress;</li> 
+					<li><strong>Also :</strong> proficiency in Microsoft Word, Excel, PowerPoint.</li>
+				</ul>
+				
+				<h5><em>Language</em></h5>
+				<ul class="bullet-list">
+					<li><strong>Basic speech, comprehension :</strong> Mandarin Chinese;</li> 
+					<li><strong>Basic speech, literacy :</strong> French;</li>
+					<li><strong>Literacy :</strong> Ancient Greek, Latin.</li>  
+				</ul>	
+				
+				<h5><em>Et Cetera</em></h5>
+				<p>Personal interests include : drawing, reading, writing, hiking, swimming in lakes.</p>
+			</div>	
+
+<!-- gitai lab -->
+<p>The research group of Dr. Zemer Gitai studies how cellular components are organized and coordinated to carry out vital functions. The lab uses <em>Caulobacter crescentus</em> as a model organism, a widely abundant bacterium that, in reproduction, gives rise to two distinct daughter cells &mdash; a sticky-ended, fixative stalked cell and a mobile swarmer cell. The stalked cell can attach to surfaces by a very strong natural glue, while the flagellum-equipped swarmer cell is able to swim, <em>e.g.</em>, in search of nutrients.  We took inspiration from the unique morphology of this organism, with special attention to its cytoskeleton (the lab&rsquo;s focus), in coming up with the website design.</p>
+
+
+<!-- blackwell lab -->
+<p>While I was working as a technician in the lab of Dr. T. Keith Blackwell, we created a website for his research group at Harvard Medical School (they have since joined the Joslin Diabetes Center).  Under Dr. Blackwell&rsquo;s direction, lab members investigate basic research questions concerning oxidative stress response (linked to, e.g., ageing) and germline development, using the nematode <em>C. Elegans</em> as a model organism.  The beautiful simplicity of the worm&rsquo;s anatomy, along with striking visualizations of protein expression in its tissue, served as interesting themes in my first ever web project.</p>
+
+
+
+<div class="frame-image">
+<div id="slideshow" class="clearfix">
+<div class="slide">
+<img src="http://localhost:8888/cielt/wp-content/uploads/2012/10/2003_blackwell_0-home.jpg" alt="Blackwell Lab Home Page" title="2003_blackwell_0-home" />
+</div>
+<div class="slide"><img src="http://localhost:8888/cielt/wp-content/uploads/2012/10/2003_blackwell_1-research2.jpg" alt="Blackwell Lab Research" title="2003_blackwell_1-research" /></div>
+<div class="slide"><img src="http://localhost:8888/cielt/wp-content/uploads/2012/10/2003_blackwell_2-research-skn1.jpg" alt="Blackwell Lab Research : SKN-1" title="2003_blackwell_2-research-skn1" /></div>
+</div>
+</div>
