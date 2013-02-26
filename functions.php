@@ -164,22 +164,6 @@ function script_enqueuer() {
 
 
 
-function load_cycle() {
-	/*
-	global $pagenow, $typenow;
-	if (empty($typenow) && !empty($_GET['post'])) {
-		$post = get_post($_GET['post']);
-		$typenow = $post->post_type;
-		echo($typenow);
-	}
-	
-	if (!is_admin() && $typenow=='folio_project') {    
-		$path_pre = get_template_directory_uri();
-		wp_register_script( 'cycle', get_template_directory_uri() . '/js/jquery.cycle.all.js', array( 'jquery' ) );
-		wp_enqueue_script('cycle');
-	}*/
-}
-
 function les_favicon() { ?>
 <link rel="shortcut icon" href="<?php echo(get_template_directory_uri().'/favicon.ico'); ?>" >
 <?php }
