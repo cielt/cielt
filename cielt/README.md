@@ -1,4 +1,0 @@
-cielt
-=====
-
-cielt wordpress theme
