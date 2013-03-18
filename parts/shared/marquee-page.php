@@ -1,4 +1,3 @@
 
-<div class="box-marquee">
-	<!--<div class="max960-centered"></div>-->
-</div>
+<div class="box-marquee"></div>
+<div class="marquee-spacer"></div>

@@ -1,7 +1,7 @@
 <div id="base-page">
 	<div class="wrapper-anchor">
 	
-	<div class="wire-anchor max960-centered clearfix">
+	<div class="wire-anchor max990-centered clearfix">
 		<span class="spacer ls"></span>
 		<div class="box-plate clearfix">
 			<span class="spacer bullet">&#8226;</span>
@@ -12,7 +12,7 @@
 	</div>
 </div>
 <footer>
-	<div class="max960-centered">
+	<div class="max990-centered">
 		<span class="corner tl"></span>
 		<span class="corner tr"></span>
 		<span class="corner bl"></span>

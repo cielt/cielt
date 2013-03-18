@@ -11,12 +11,10 @@
 ?>
 
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/showcase.js"></script>
 
-	<div id="wrapper-main">
 
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 	
 	<div class="box-inner clearfix">
 	
@@ -36,12 +34,23 @@
 		</div>
 	
 	
-		<h2><?php the_title(); ?></h2>
-		<p><em><?php echo(get_post_meta($post->ID, 'project_tagline', true)); ?></em></p>
-		<div class="wrapper-feedlist">
+		<div id="item-heading" class="column full-span">
+			<h2><?php the_title(); ?></h2>
+			<p><?php echo(get_post_meta($post->ID, 'project_tagline', true)); ?></p>
+		</div>
+		<!-- SLIDER -->
+		<div class="clearfix">
+			
+			<div id="box-slideshow" class="column full-span clearfix">
+				<div class="box-content <?php $category = get_the_category(); echo str_replace(" ", "-", $category[0]->cat_name); ?>">
+					<?php the_content(); ?>
+				</div>
+			</div>
+		</div>
 		
+		<div class="wrapper-feedlist clearfix">
 			<!-- projects headline list / sidebar -->
-			<div class="column leftcol skinny">
+			<div class="column x-skinny">
 				<div id="sticky" class="wrapper-project-info">
 					<table class="project-details clearfix">
 						<tr>
@@ -60,7 +69,29 @@
 							<td class="label">tags</td>
 							<td class="value"><?php the_tags("", "•"); ?></td>
 						</tr>
-						<!-- URL, if applicable -->
+						
+					</table>
+		
+	
+				</div>
+			</div>	
+			<!-- project detail -->
+			<div id="project-info" class="column">
+				<!-- DESC -->
+						<!-- summary -->
+					<?php echo(get_post_meta($post->ID, 'project_summary', true)); ?>
+
+						<?php 
+						$credits = get_post_meta($post->ID, 'credits', true);
+						if($credits){ 
+							echo('<div class="also-notes"><h5>Additional Notes</h5>'.$credits.'</div>');	
+							
+						}?>	
+			</div>
+			<!-- related -->	
+			<div class="column x-skinny">
+				<table class="project-details clearfix">
+				<!-- URL, if applicable -->
 					<?php $web_url = get_post_meta($post->ID, 'project_url', true);
 						$url_text = "";
 						
@@ -70,39 +101,19 @@
 							} else {
 								$url_text = $web_url;
 							}
-							echo('<tr><td class="label">URL</td>
-							<td class="value"><a href="'. $web_url .'" target="_blank">' . $url_text . '</a></td></tr>');
+							echo('<h5>Visit site</h5>
+								<p><a href="'. $web_url .'" target="_blank">' . $url_text . '</a></p>');
 						}
-					?>	
-					</table>
-		
-					<!-- summary -->
-					<?php echo(get_post_meta($post->ID, 'project_summary', true)); ?>
-
-						<?php 
-						$credits = get_post_meta($post->ID, 'credits', true);
-						if($credits){ 
-							echo('<div class="also-notes border-top"><h5>Additional Notes</h5>'.$credits.'</div>');	
-							
-						}?>
-	
-				</div>
-			</div>	
-			<!-- project detail -->
-			<div id="rightcol" class="column rightcol wide">
-				<div class="box-content <?php $category = get_the_category(); echo str_replace(" ", "-", $category[0]->cat_name); ?>">
-					
-					<?php the_content(); ?>
-				</div>	
-			</div>	
-					
+					?>
+				</table>		
+			</div>		
 		</div><!-- /wrapper-feedlist -->	
 		
-		<div class="wrapper-current-controls clearfix">
+		<div class="column full-span"><div class="wrapper-current-controls clearfix">
 			<div class="controls ctrls-left"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr; %title</span>') ); ?></div>
 			<div class="ur-here"><span class="before"></span><?php the_title(); ?><span class="after"></span></div>
 			<div class="controls ctrls-right"><?php next_post_link( '%link', __( '<span class="meta-nav">%title &rarr;</span>') ); ?></div>
-		</div>
+		</div></div>
 		
 		<?php endwhile; ?>
 

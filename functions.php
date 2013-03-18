@@ -1,8 +1,6 @@
 <?php
-//update_option('siteurl','http://localhost:8888/cielt');
-//update_option('home','http://localhost:8888/cielt');
 /**
-* Starkers functions and definitions
+* Cielt functions and definitions
 *
 * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
 *
@@ -18,6 +16,7 @@ Required external files
 ======================================================================================================================== */
 
 require_once( 'external/starkers-utilities.php' );
+
 
 /* ========================================================================================================================
 
@@ -72,7 +71,7 @@ function query_post_type($query) {
 		if($post_type)
 			$post_type = $post_type;
 		else
-			$post_type = array('post', 'folio_project', 'drawing'); // replace cpt to your custom post type
+			$post_type = array('post', 'page', 'folio_project', 'drawing'); // replace cpt to your custom post type
 		$query->set('post_type',$post_type);
 		return $query;
 	}
@@ -87,44 +86,103 @@ e.g. require_once( 'custom-post-types/your-custom-post-type.php' );
 
 ======================================================================================================================== */
 
-// ADDING CUSTOM POST TYPE
-add_action( 'init', 'create_project_post_type' );
-function create_project_post_type() {
-	register_post_type( 'folio_project',
-	array(
-		'labels' => array(
-			'name' => __( 'Projects' ),
-			'singular_name' => __( 'Project' )
-			),
-			'public' => true,
-			'has_archive' => true,
-			'rewrite' => array('slug' => '/projects'),
-			)
-			);
+/* PROJECT custom post type */
+add_action('init', 'register_project', 1); // Set priority to avoid plugin conflicts
+function register_project() { // A unique name for our function
+ 	$labels = array( // Used in the WordPress admin
+		'name' => _x('Projects', 'post type general name'),
+		'singular_name' => _x('Project', 'post type singular name'),
+		'add_new' => _x('Add New', 'Project'),
+		'add_new_item' => __('Add New Project'),
+		'edit_item' => __('Edit Project'),
+		'new_item' => __('New Project'),
+		'view_item' => __('View Project'),
+		'search_items' => __('Search Projects'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash')
+	);
+	$args = array(
+		'labels' => $labels, // Set above
+		'public' => true, // Make it publicly accessible
+		'rewrite' => array('slug' => '/projects'),
+		'hierarchical' => false, // No parents and children here
+		'menu_position' => 5, // Appear right below "Posts"
+		'has_archive' => true, // Activate the archive
+		'supports' => array('title','editor','comments','thumbnail')
+	);
+	register_post_type( 'folio_project', $args ); // Create the post type, use options above
+	
+	register_taxonomy_for_object_type('category', 'folio_project');
+	register_taxonomy_for_object_type('post_tag', 'folio_project');
+	
+	flush_rewrite_rules();
+}
 
-			register_taxonomy_for_object_type('category', 'folio_project');
-			register_taxonomy_for_object_type('post_tag', 'folio_project');
-		}
-
-
-
-add_action( 'init', 'create_drawing_post_type' );
-function create_drawing_post_type() {
-	   register_post_type( 'drawing',
-	   array(
-	   	'labels' => array(
-	   		'name' => __( 'Drawings' ),
-	   		'singular_name' => __( 'Drawing' )
-	   		),
-	   		'public' => true,
-	   		'has_archive' => true,
-	   		'rewrite' => array('slug' => '/drawings'),
-	   		)
-	   		);
+/* DRAWING custom post type */
+add_action( 'init', 'register_drawing' );
+function register_drawing() {
+	$labels = array( // Used in the WordPress admin
+		'name' => _x('Drawings', 'post type general name'),
+		'singular_name' => _x('Drawing', 'post type singular name'),
+		'add_new' => _x('Add New', 'Drawing'),
+		'add_new_item' => __('Add New Drawing'),
+		'edit_item' => __('Edit Drawing'),
+		'new_item' => __('New Drawing'),
+		'view_item' => __('View Drawing'),
+		'search_items' => __('Search Drawings'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash')
+	);
+	$args = array(
+		'labels' => $labels, // Set above
+		'public' => true, // Make it publicly accessible
+		'rewrite' => array('slug' => '/drawings'),
+		'hierarchical' => false, // No parents and children here
+		'menu_position' => 6, // Appear right below "Posts"
+		'has_archive' => true, // Activate the archive
+		'supports' => array('title','editor','comments','thumbnail')
+	);
+	
+	register_post_type( 'drawing', $args);
        
-	   		register_taxonomy_for_object_type('category', 'drawing');
-	   		register_taxonomy_for_object_type('post_tag', 'drawing');
-	   	}
+	register_taxonomy_for_object_type('category', 'drawing');
+	register_taxonomy_for_object_type('post_tag', 'drawing');
+	
+	flush_rewrite_rules();
+}
+
+/* PROJECT, DRAWING : metaboxes 
+   added via custom field sets */ 
+
+
+/* PROJECT custom taxonomy : topic */
+$labels_topics = array(
+	'name' => _x( 'Topics', 'taxonomy general name' ),
+	'singular_name' => _x( 'Topic', 'taxonomy singular name' ),
+	'search_items' =>  __( 'Search Topics' ),
+	'all_items' => __( 'All Topics' ),
+	'parent_item' => __( 'Parent Topic' ),
+	'parent_item_colon' => __( 'Parent Topic:' ),
+	'edit_item' => __( 'Edit Topic' ),
+	'update_item' => __( 'Update Topic' ),
+	'add_new_item' => __( 'Add New Topic' ),
+	'new_item_name' => __( 'New Topic Name' ),
+);
+
+register_taxonomy(
+	'topics', // The name of the custom taxonomy
+	array( 'folio_project', 'drawing' ), // Associate it with our custom post type
+	array(
+		'hierarchical' => true,
+		'rewrite' => array(
+			'slug' => 'topic', // Use "topic" instead of "topics" in permalinks
+			'hierarchical' => true // Allows sub-topics to appear in permalinks
+			),
+		'labels' => $labels_topics
+		)
+	);
+
+
 
 
 
@@ -158,9 +216,15 @@ function script_enqueuer() {
 	wp_register_script( 'waypoints', get_template_directory_uri() . '/js/waypoints.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'waypoints' );
 
-	wp_register_style( 'screen', get_template_directory_uri().'/style.css', '', '', 'screen' );
-	wp_enqueue_style( 'screen' );
+	//wp_register_style( 'screen', get_template_directory_uri().'/style.css', '', '', 'screen' );
+	//wp_enqueue_style( 'screen' );
 }	
+
+add_action('init', 'les_enqueue_less');
+function les_enqueue_less() {
+	wp_enqueue_style('grid-less', get_template_directory_uri().'/css/grid.less');
+	wp_enqueue_style('les-less', get_template_directory_uri().'/css/les.less');
+}
 
 
 

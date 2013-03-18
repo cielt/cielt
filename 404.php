@@ -5,8 +5,8 @@
  * Please see /external/starkers-utilities.php for info on get_template_parts()
  *
  * @package 	WordPress
- * @subpackage 	Starkers
- * @since 		Starkers 4.0
+ * @subpackage 	Cielt
+ * @since 		Cielt 0.1
  */
 ?>
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>

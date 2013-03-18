@@ -11,10 +11,9 @@
 ?>
 
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-<div id="wrapper-main">
 
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 	<div class="box-inner clearfix">
 		<?php 
 	if (is_category( )) {
@@ -33,23 +32,27 @@
 		if( have_posts() ) : ?>	
 
 		<span class="link-ribbon">category archive</span>
-		<h2><?php echo single_cat_title( '', false ); ?></h2>
+
+		<div id="collection-heading" class="border-bottom column full-span">
+			<h3><?php echo single_cat_title( '', false ); ?></h3>
+		</div>
 
 
 		<!-- writing results -->
-		<div class="wrapper-feedlist">
+		<div class="column full-span">
+			<div class="wrapper-feedlist">
 			<ol class="feedlist headline-list clearfix">
 				<?php while ( $cat_query->have_posts() ) : $cat_query->the_post(); ?>
 					<?php get_template_part( 'listing', get_post_type() ); ?>
 				<?php endwhile;  wp_reset_postdata(); ?>
 			</ol>
 
-		</div><!-- /wrapper-feedlist -->
-		<div class="wrapper-current-controls clearfix">	
+		</div><!-- /wrapper-feedlist --></div>
+		<div class="column full-width"><div class="wrapper-current-controls clearfix">	
 			<!-- older / newer entries -->	
 			<?php next_posts_link('&laquo; older entries', $cat_query->max_num_pages) ?>
 			<?php previous_posts_link('more recent entries &raquo;') ?>
-		</div><!-- /wrapper-current-controls -->
+		</div><!-- /wrapper-current-controls --></div>
 
 	<?php else: ?>
 		<h2>No posts to display in <?php echo single_cat_title( '', false ); ?></h2>

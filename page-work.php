@@ -15,14 +15,16 @@
 */
 ?>
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-<div id="wrapper-main">
+
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 	<div class="box-inner clearfix">
 		<!-- FEED -->
-		<h3 class="upper"><?php the_title(); ?></h3>
-		<p>Selected projects from my portfolio.</p>
-		<div class="wrapper-feedlist">
+		<div id="collection-heading" class="border-bottom column full-span clearfix">
+			<h3 class="upper"><?php the_title(); ?></h3>
+			<p>Selected projects from my portfolio.</p>
+		</div>
+		<div class="wrapper-feedlist clearfix">
 			<?php
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				$args= array(
@@ -38,7 +40,7 @@
 				$projects_query = new WP_Query($args);
 				if( have_posts() ) : ?>
 			<!-- projects headline list / sidebar -->
-			<div class="column leftcol x-skinny">
+			<div class="column x-skinny">
 				<ol class="feedlist title-roll">
 					<?php while ( $projects_query->have_posts() ) : $projects_query->the_post(); ?>
 					<?php get_template_part( 'listing', get_post_type()."-headline" ); ?>
@@ -48,15 +50,16 @@
 			</div>
 			
 			<!-- thumbnail list -->
-			<div class="column rightcol x-wide">
+			<div class="column x-wide">
 				<ol class="feedlist thumbnail-list clearfix">
 					<?php while ( $projects_query->have_posts() ) : $projects_query->the_post(); ?>
 					<?php get_template_part( 'tile', get_post_type() ); ?>
 					<?php endwhile; ?>
 				</ol>
-			<?php endif; ?></div>
-		</div>
-	</div>
+			<?php endif; ?>
+			</div>
+		</div><!-- /wrapper-feedlist -->
+	</div><!-- /box-inner -->
 </div><!-- /#wrapper-page-content -->	
 </div><!-- /#wrapper-main -->
 <?php get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

@@ -24,17 +24,19 @@ var siteURL = '<?= site_url(); ?>';
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 
 	<div id="wrapper-lab" class="box-inner clearfix">
 	<!-- ribbon marker -->	
 		<div id="ico-lab" class="ribbon-ico"><span class="ico">lab<span></div>
 		
-		<h3 class="upper">Welcome to the Lab</h3>
+		<div id="collection-heading" class="column full-span"><h3 class="upper">Welcome to the Lab</h3>
 		<p>This is where i collect drafts of things i&rsquo;m working on; please view frame source to see code.  Canvas and CSS3 experiments work best in <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a> or <a href="http://www.apple.com/safari/" target="_blank">Safari</a>.</p> 
+		</div>
 		
 		<!-- IDEAS -->	
-		<div id="demo-ideas" class="section">
+		<div class="column full-span">
+			<div id="demo-ideas" class="section">
 			<h3 class="ribbon-header">Experiments</h3>
 			
 			
@@ -54,17 +56,17 @@ var siteURL = '<?= site_url(); ?>';
 				src="" width="912" height="100" frameborder="0" scrolling="auto"></iframe>
 			</div>
 
-		</div>
+		</div></div>
 		
 		
 		
 		
-		<div class="wrapper-current-controls clearfix">
+		<div class="column full-span"><div class="wrapper-current-controls clearfix">
 		<div class="controls ctrls-left">
 		</div>
 			<div class="ur-here"><span class="before"></span><?php the_title(); ?><span class="after"></span></div>
 			<div class="controls ctrls-right"></div>
-		</div>
+		</div></div>
 		<?php endwhile; ?>
 	</div>
 	

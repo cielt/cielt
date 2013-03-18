@@ -21,17 +21,17 @@ jQuery(document).ready(function($) {
 
 	var resizeAdjustments = function(){
 		//make columns equal height
-		if($('.column').length >0){
-			var leftCWrap = $(".column.leftcol .wrapper-feedlist");
-			var rightCWrap = $(".column.rightcol .wrapper-feedlist");
+		if($('.column')){
+			var leftCWrap = $(".column#work-col .wrapper-feedlist");
+			var rightCWrap = $(".column#writing-col .wrapper-feedlist");
 			var leftH = leftCWrap.height();
 			var rightH = rightCWrap.height();
 			if (leftH >= rightH){
 				rightCWrap.css({ height : leftH });
-				//console.log("right: "+rightH+" now matches left:"+leftH);
+			
 			} else {
 				leftCWrap.css({ height : rightH });
-				//console.log("left: "+leftH+" now matches right:"+rightH);
+			
 			}
 		}
 		//center labels vertically
@@ -71,12 +71,13 @@ jQuery(document).ready(function($) {
 
 
 		$j("#secondary-header").waypoint(function(event, direction){
-			$(this).parent().toggleClass("fixy", direction === 'down');
+			//$(this).parent().toggleClass("fixy", direction === 'down');
+			$("#wrapper-page").toggleClass("fixy", direction === 'down');
 			event.stopPropagation();
 		}, {
 			offset: 45  // 56+3+1+16+1px : 77 - 32
 		});
-
+		
 		//for thumbnail lists - position labels
 		$j('.wrapper-feedlist').imagesLoaded(function(){
 			centerLabels();
@@ -100,9 +101,6 @@ jQuery(document).ready(function($) {
 
 			});
 		});	
-
-		//for folio project pages
-		$('body.single-folio_project #rightcol .web-design .frame-image').prepend($('<div class="browser-strip"><span class="buttons"></span></div>'));
 
 	});
 

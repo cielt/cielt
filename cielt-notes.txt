@@ -146,11 +146,6 @@ IE testing
 http://stackoverflow.com/questions/55577/how-can-i-test-my-web-pages-in-microsoft-internet-explorer-on-a-mac
 
 
-• Translated static mock-ups into flexible, semantic front-end code; 
-• Worked with back-end developers to integrate presentation markup and server-side scripting; 
-• Conducted testing across major browsers throughout development process and post-launch; 
-• Supported design and communications teams in creating graceful website concepts from site mapping through interface design and user flow, advising on UX, SEO considerations and cross-browser best practices.
-
 
 
 

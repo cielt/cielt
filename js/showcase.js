@@ -11,7 +11,7 @@ var startSlideshow = function(){
 		
 		cycleNav.append(cycleNext, cyclePrev, cycleCount);
 		cycleNavWrapper.append(cycleNav, cycleCount);
-		cycleNavWrapper.appendTo('#rightcol .box-content');
+		cycleNavWrapper.appendTo('#box-slideshow .box-content');
 
 		//total slide count
 		var slideTotal = $('#slideshow').children().length;

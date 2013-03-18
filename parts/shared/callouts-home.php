@@ -1,7 +1,7 @@
 <div id="secondary-header">
 <!-- features -->
 <div class="band-callouts">
-	<div id="wrapper-callouts" class="max960-centered clearfix">
+	<div id="wrapper-callouts" class="max990-centered clearfix">
 		<div class="band-ticker">
 			<ul class="checkthis clearfix">
 				<li><a href="<?php echo site_url(); ?>/play/lab" class="ico-tile-link" id="link-lab"><span class="ico"></span>lab</a></li>

@@ -11,7 +11,7 @@
  *
  * @package 	WordPress
  * @subpackage 	Cielt
- * @since 		Cielt 4.0
+ * @since 		Cielt 0.1
  */
 ?>
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>

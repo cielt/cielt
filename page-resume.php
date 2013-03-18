@@ -20,19 +20,19 @@
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 
 	<div id="wrapper-resume" class="box-inner clearfix">
 		<!-- ribbon marker -->	
 		<div id="ico-resume" class="ribbon-ico"><span class="ico">lab<span></div>
 			<!-- header -->
-		<div class="header-document wrapper-feedlist no-border no-padding clearfix">
-			<div class="column leftcol skinny">
-				<h2><a href="<?php echo site_url(); ?>">Chia-Yin Leslie Tu</a></h2>
-				<h5 class="tagline">web developer &#8226; overanalyzer</h5>
+		<div class="header-document clearfix">
+			<div class="column skinny">
+				<h1><a href="<?php echo site_url(); ?>">Chia-Yin Leslie Tu</a></h1>
+				<h5 class="tagline">web developer &#8226; designer</h5>
 			</div>
 			
-			<div class="column rightcol wide clearfix">
+			<div class="column wide clearfix">
 				
 				<table class="">
 					<tr>
@@ -49,10 +49,13 @@
 			</div>
 
 		</div>
+		<div class="column full-span">
+				<div class="spacer-v hairline"><span class="graphic tackle"></span></div>
+			</div>
 		<div class="wrapper-feedlist no-border">
-			<div class="spacer-v hairline"><span class="graphic tackle"></span></div>
+			
 		<!-- edu / skills -->
-			<div class="column leftcol skinny">
+			<div class="column skinny">
 				<div id="wrapper-education" class="history-section">
 					<h3 class="header-section upper">Education</h3>
 				<ol id="education" class="timeline">
@@ -116,12 +119,12 @@
 				<div class="vspacer">
 				</div>
 				</div>
-				<p><em>References are available upon request.</em></p>
+				<p>References are available upon request.</p>
 				
 			
 			</div>	
 			<!-- experience -->
-			<div id="rightcol" class="column rightcol wide">
+			<div id="rightcol" class="column wide">
 				<div class="history-section">
 				<h3 class="header-section upper">Experience</h3>
 				<ol id="experience" class="timeline">

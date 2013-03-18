@@ -30,8 +30,8 @@
 			<span class="cal-year"><?php $start_year = date('Y', strtotime(get_post_meta($post->ID, 'drawing_start_date', true))); echo($start_year); ?></span>
 		</time>
 <div class="post-details clearfix">
-		<div class="headline">
-			<h4><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>	
+		<div class="thumbnail">
+			
 			<?php if (get_post_meta($post->ID, 'drawing_thumbnail', true)) : ?>
 				<a href="<?php esc_url( the_permalink() ); ?>" title="<?php the_title_attribute(); ?>" class="thumb-link">
 					<?php $drawing_thumb = get_post_meta($post->ID, 'drawing_thumbnail', true);
@@ -41,7 +41,8 @@
 				</a>
 			<?php endif; ?>
 		</div>
-
+		<div class="info">
+		<h4><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>		
 		<p><?php echo(apply_filters( 'project_summary', wp_trim_words( get_post_meta($post->ID, 'drawing_notes', true), 25, '&hellip;' ) )); ?></p>
 		</div>
 	</article>

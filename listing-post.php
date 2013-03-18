@@ -31,8 +31,7 @@
 		</time>
 		
 		<div class="post-details clearfix">
-			<div class="headline">
-			<h4><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>	
+			<div class="thumbnail">	
 			<?php if ( has_post_thumbnail()) : ?>
 				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 					<?php the_post_thumbnail(); ?>
@@ -40,7 +39,10 @@
 			<?php endif; ?>
 			</div>
 		
-			<div class="preview-text"><?php the_excerpt(); ?></div>
+			<div class="info">
+				<h4><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+				<?php the_excerpt(); ?>
+			</div>
 		</div>
 	</article>
 </li>

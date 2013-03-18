@@ -9,7 +9,7 @@
 		</div>
 	</div>
 	<!-- localhost :  index -->
-	<div id="wrapper-header-utils" class="max960-centered clearfix">	
+	<div id="wrapper-header-utils" class="max990-centered clearfix">	
 	<!-- global nav -->
 		<div id="wrapper-global-nav" class="clearfix">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
@@ -34,6 +34,8 @@
 	}
 ?>
 
+<!-- BEGIN MAIN -->
+<div id="wrapper-main">
 <!-- callouts / ticker-->
 <?php 
 	if ( is_home() ) {

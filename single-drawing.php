@@ -11,11 +11,9 @@
 ?>
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-	<div id="wrapper-main">
-
 
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 	<div class="box-inner clearfix">
 	
 	<!-- category page -->
@@ -27,12 +25,14 @@
 			echo '<a class="link-ribbon" href="'.get_category_link($category[0]->term_id ).'">'.$category[0]->cat_name.'</a>';
 		} ?>
 
-		<h2><?php the_title(); ?></h2>
-		<p><em><?php echo(get_post_meta($post->ID, 'project_tagline', true)); ?></em></p>
-		<div class="wrapper-feedlist">
+		<div id="item-heading" class="border-bottom column full-span">
+			<h2><?php the_title(); ?></h2>
+			<p><em><?php echo(get_post_meta($post->ID, 'project_tagline', true)); ?></em></p>
+		</div>
+		<div class="wrapper-feedlist clearfix">
 		
 			<!-- projects headline list / sidebar -->
-			<div class="column leftcol skinny">
+			<div class="column x-skinny">
 				<div class="wrapper-project-info">
 					<table class="project-details clearfix">
 						<tr>
@@ -79,7 +79,7 @@
 				</div>
 			</div>	
 			<!-- project detail -->
-			<div class="column rightcol wide">
+			<div class="column x-wide">
 				<div class="box-content">
 					<?php the_content(); ?>
 				</div>
@@ -87,10 +87,12 @@
 					
 		</div><!-- /wrapper-feedlist -->	
 		
-		<div class="wrapper-current-controls clearfix">
-			<div class="controls ctrls-left"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr; %title</span>') ); ?></div>
-			<div class="ur-here"><span class="before"></span><?php the_title(); ?><span class="after"></span></div>
-			<div class="controls ctrls-right"><?php next_post_link( '%link', __( '<span class="meta-nav">%title &rarr;</span>') ); ?></div>
+		<div class="column full-span">
+			<div class="wrapper-current-controls clearfix">
+				<div class="controls ctrls-left"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr; %title</span>') ); ?></div>
+				<div class="ur-here"><span class="before"></span><?php the_title(); ?><span class="after"></span></div>
+				<div class="controls ctrls-right"><?php next_post_link( '%link', __( '<span class="meta-nav">%title &rarr;</span>') ); ?></div>
+			</div>
 		</div>
 		
 		<?php endwhile; ?>

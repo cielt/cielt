@@ -16,11 +16,11 @@
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 <?php if ( have_posts() ): ?>
 <!-- main content area -->
-<div id="wrapper-main">
-<div id="wrapper-page-content" class="max960-centered">
+
+<div id="wrapper-page-content" class="max990-centered">
 	<div class="box-inner clearfix">
 			<!-- WORK -->	
-			<div class="column leftcol">
+			<div id="work-col" class="column">
 				<h3 class="upper"><a href="index.php?page_id=2">Work</a></h3>
 				<!-- FEED -->
 				<div class="wrapper-feedlist">
@@ -40,12 +40,12 @@
 					<?php endwhile; ?>
 					</ol>
 				</div>
-		<a href="index.php?page_id=2" class="link-bar">portfolio</a>
+		<a href="index.php?page_id=2" class="link-bar easy-trans">portfolio</a>
 
-	</div><!-- /column.left -->
+	</div><!-- /column -->
 
 <!-- WRITING -->	
-<div class="column rightcol">
+<div id="writing-col" class="column">
 	<?php rewind_posts(); ?>
 	<!-- FEED -->
 	<h3 class="upper"><a href="index.php?page_id=9">Writing</a></h3>
@@ -63,8 +63,8 @@
 				<?php endwhile; ?>
 			</ol>
 		</div>	
-	<a href="index.php?page_id=9" class="link-bar">writing</a>
-</div><!-- /column.rightcol -->
+	<a href="index.php?page_id=9" class="link-bar easy-trans">writing</a>
+</div><!-- /column -->
 
 <?php else: ?>
 	<p>No posts to display</p>

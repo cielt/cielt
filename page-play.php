@@ -15,14 +15,16 @@
 */
 ?>
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-<div id="wrapper-main">
 
 <!-- MAIN CONTENT -->	
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 	<div class="box-inner clearfix">
 		<!-- FEED -->
-		<h3 class="upper"><?php the_title(); ?></h3>
-		<div class="wrapper-feedlist">
+		<div id="collection-heading" class="border-bottom column full-span">
+			<h3 class="upper"><?php the_title(); ?></h3>
+		</div>
+		<div class="column full-span">
+			<div class="wrapper-feedlist">
 			<?php
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				$args= array(
@@ -41,6 +43,7 @@
 				<?php endwhile; ?>
 			</div>	
 			<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </div><!-- /#wrapper-page-content -->	

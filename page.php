@@ -16,12 +16,11 @@
 ?>
 <?php get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-<div id="wrapper-main">
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 <!-- features -->
 <div class="band-callouts">
-	<div id="wrapper-callouts" class="max960-centered clearfix">
+	<div id="wrapper-callouts" class="max990-centered clearfix">
 		<div class="band-ticker">
 			<!-- message or related links -->          
 		</div>	
@@ -30,7 +29,7 @@
 </div>
 
 <!-- MAIN CONTENT -->
-<div id="wrapper-page-content" class="max960-centered">
+<div id="wrapper-page-content" class="max990-centered">
 	<div class="box-inner clearfix">
 
 <h2><?php the_title(); ?></h2>

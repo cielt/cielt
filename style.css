@@ -1,10 +1,10 @@
 /*
 Theme Name: 	Cielt
-Theme URI: 		http://flyingpeach.com
+Theme URI: 		http://lesinteresting.com
 Description: 	custom theme for les interesting!
 Version: 		0.1
 Author: 		Cielt
-Author URI: 	http://flyingpeach.com
+Author URI: 	http://lesinteresting.com
 Tags: 			clean, basic
 */
 
@@ -21,8 +21,6 @@ CONTENTS:
 /* ---------------------------------------------------------------------------------------------------------- 
 01 Sensible defaults ----------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------- */
-
-@import "css/reset.css";
 
 div,
 article,
@@ -95,7 +93,7 @@ body {
     letter-spacing: -0.31em;/* webkit: collapse white-space between units */
     *letter-spacing: normal;/* reset IE < 8 */
     word-spacing: -0.43em;  /* IE < 8 && gecko: collapse white-space between units */
-	font-family: Futura, "Century Gothic", Helvetica, Arial, sans-serif;
+	font-family: "futura-pt", Futura, "Century Gothic", Helvetica, Arial, sans-serif;
 	font-size: 76%;
 	color: #000;
 	background-color: #ddd;
@@ -416,7 +414,7 @@ textarea:focus, input:focus {
 	padding: 2px 16px 2px 10px;
 	color: #666;
 	line-height: 1.2em;
-	font-family: Futura, Helvetica, Arial, sans-serif;
+	font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif;
 	background: url(images/ico_magglass.png) #333 no-repeat 132px center;
 	border: 1px solid #666;
 	-webkit-border-radius: 10em;
@@ -426,7 +424,7 @@ textarea:focus, input:focus {
 
 ::-webkit-input-placeholder, :-moz-placeholder {
    	color: #666;
-	font-family: Futura, Helvetica, Arial, sans-serif;
+	font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif;
 }
 
 #wrapper-search #search:focus {
@@ -510,7 +508,7 @@ footer address.site-info, footer .footnote { font-style: normal; display: inline
 
 /* body copy */
 #wrapper-main p { font-family: "adelle", serif; font-weight: 100; font-size: 10pt; line-height: 1.6em; color: #4d4d4d; margin: 0 0 18px; }
-#wrapper-main p.copy-sans { font-family: Futura, Helvetica, Arial, sans-serif; }
+#wrapper-main p.copy-sans { font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif; }
 
 /* default body link style */
 #wrapper-main a { text-decoration: none; }
@@ -966,7 +964,7 @@ ul#menu-list-experiments li.current a { color: #fff; background-color: #22b573; 
 .header-document { margin: 0 auto 24px; }
 #wrapper-page-content #wrapper-resume .vspacer { width: 100%; height: 36px;}
 #wrapper-page-content #wrapper-resume h2, #wrapper-page-content #wrapper-resume h3 { 
-	font-family: Futura, Helvetica, Arial, sans-serif; font-size: 21pt; line-height: normal; margin: 0 0 2px; }
+	font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif; font-size: 21pt; line-height: normal; margin: 0 0 2px; }
 #wrapper-page-content #wrapper-resume h3.header-section { color: #22b573; font-size: 10pt; font-weight: 400; 
 	padding-bottom: 6px;
 	border-bottom: 1px solid #22b573;
@@ -994,7 +992,7 @@ ul#menu-list-experiments li.current a { color: #fff; background-color: #22b573; 
 #wrapper-page-content .history-section ol.timeline li div.thing-done {  }
 #wrapper-page-content .history-section ol.timeline li h4 { 
 	font-weight: bold; font-size: 11pt; margin: 0; line-height: normal; 
-	font-family: Futura, Helvetica, Arial, sans-serif; color: #4d4d4d; }
+	font-family: "futura-pt", Futura, Helvetica, Arial, sans-serif; color: #4d4d4d; }
 #wrapper-page-content .history-section ol.timeline li p.also { font-weight: 100; font-size: 10pt; color: #666; }
 #wrapper-page-content .history-section h5, .history-section ol.timeline li h5 {
 	font-size: 10pt; margin: 0 0 2px; color: #000;  }
