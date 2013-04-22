@@ -802,7 +802,22 @@ div.spacer-v.hairline {
 	}
 }
 
-
+.centered {
+			text-align: center;
+			.ringed { width: 180px; height: 180px; 
+				-webkit-border-radius: 180px;
+          		border-radius: 180px; 
+				background-color: @white;
+  				/* useful if you don't want a bg color from leaking outside the border: */
+  				-webkit-background-clip: padding-box; background-clip: padding-box;
+				border: 10px solid @extralightgrey; margin: 20px auto; 
+				
+				text-align: center;
+				
+				img { vertical-align: middle; margin: 24px 0; } 
+			}
+			p { text-align: center; }
+		}
 
 /* =RIBBONS
 ----------------------------------------------- */
@@ -935,6 +950,7 @@ li span.link-ribbon.item {
 		}
 		
 		.frame-image.float-right { width: auto; float: right; margin-left: 12px; }
+		
 	}
 }
 

@@ -88,16 +88,17 @@
 					<h3 class="header-section upper">Skills &amp; Interests</h3>
 					<h5>scripting, frameworks</h5>	
 					<ul class="bullet-list">
-						<li><strong>fluency :</strong> HTML / CSS;</li> 
-						<li><strong>working knowledge :</strong> JavaScript (plain, JQuery), HTML5, CSS3, PHP; MODx, WordPress.</li>  
+						<li><strong>fluency :</strong> HTML(5), CSS(3); LESS CSS</li> 
+						<li><strong>working knowledge :</strong> JavaScript (plain, JQuery), PHP.</li> 
 					</ul>
 					<h5>CMF / CMS development</h5>	
 					<ul class="bullet-list">
 						<li>MODx, WordPress</li> 
 					</ul>
-					<h5>software</h5>	
+					<h5>software, tools</h5>	
 					<ul class="bullet-list">
 						<li><strong>fluency :</strong> Adobe Dreamweaver, Flash, Illustrator, InDesign, Photoshop; Microsoft Word, Excel; PowerPoint.</li> 
+						<li>Git, SVN</li>
 					</ul>
 				
 				<h5>languages</h5>
@@ -110,10 +111,10 @@
 				<p>drawing, reading, writing, hiking, swimming in lakes.</p>
 				
 				
-				<h5>community projects <em class="un-bold">(coming soon)</em></h5>
+				<h5>community projects</h5>
 				<ul class="bullet-list">
-					<li><h6>Sandy Storyline</h6></li> 
-					<li><h6>Ridgewood memory archive</h6></li>  
+					<li><h6>Sandy Storyline</h6><a href="http://sandystoryline.com">http://sandystoryline.com</a></li> 
+					<li><h6>Ridgewood memory archive</h6><em>(coming soon)</em></li>  
 				</ul>	
 
 				<div class="vspacer">
@@ -139,7 +140,7 @@
 							<h4>Freelance Designer / Developer</h4>
 							<ul class="deets-list">
 								<li>Create site maps, UX / UI wireframes, visual design mock-ups;</li>
-								<li>develop UI, build CMS theming & integration;</li>
+								<li>develop UI, build CMS theming &amp; integration;</li>
 								<li>deploy, test &amp; optimize post-launch.</li>
 							</ul>
 						</div>
